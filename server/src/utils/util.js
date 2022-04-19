@@ -76,6 +76,12 @@ function setConfigValue(key, value) {
     });
 }
 
+async function computeSunCircumference(radius) {
+    const PI = await getPiValue();
+    //console.log(PI);
+    return 2 * Number(PI) * radius;
+}
+
 // format pi with decimal value
 function format(str) {
     return str.substring(0, 1) + "." + str.substring(1, str.length);
@@ -84,5 +90,6 @@ function format(str) {
 module.exports = {
     addPiPrecision,
     getPiValue,
+    computeSunCircumference,
     format
 }
