@@ -25,7 +25,10 @@ async function addPiPrecision() {
 
 async function getPiValue() {
     var PI = await getConfigValue("PI");
-    return (PI); 
+    if (isNaN(PI)) {
+        PI = 3
+    }
+    return PI; 
 }
 
 async function getDecimalValue() {
