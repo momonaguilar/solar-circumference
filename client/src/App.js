@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import styled from "styled-components";
 import SunCircumference from './components/SunCircumference';
 import Pi from './components/Pi';
-import Status from './components/Status';
+//import Status from './components/Status';
 import api from "./api/api";
 
 const StyledView = styled.div`
@@ -87,14 +87,26 @@ function App() {
             });
     }, [getSunCircumference]);
 
+    const resetPi = useCallback(() => {
+        api().resetPi()
+            .then(res => {
+                console.log(res);
+                setPiValue(res.pi);
+                getSunCircumference();
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }, [getSunCircumference]);
+
     useEffect(() => {getPiValue();
     }, [getPiValue]);
 
     return (
         <StyledView>
-            <h1>solar-circumference.</h1>
+            <h1>{process.env.REACT_APP_TITLE}</h1>
             <h2>Current PI value:</h2>
-            <Pi addPrecision={addPrecision} piValue={piValue} />
+            <Pi addPrecision={addPrecision} piValue={piValue} resetPi={resetPi}/>
             <SunCircumference sunCircumference={circumference} />
             {/* <Status status={status} /> */}
         </StyledView>

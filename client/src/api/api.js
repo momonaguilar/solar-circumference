@@ -1,9 +1,7 @@
 import axios from "axios";
 const api = () => {
     let obj = axios.create({
-        // baseURL: 'http://9000-aa786be3-fb51-4ce6-bd3a-9debcdfb1d87.cs-asia-southeast1-ajrg.cloudshell.dev',
-        //baseURL: 'https://frozen-shore-55449.herokuapp.com',
-        baseURL: 'http://localhost:9000',
+        baseURL: process.env.REACT_APP_SERVER_URL,
         headers: {'Content-Type': 'application/json',
                   'Access-Control-Allow-Origin':'*',
                   'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
@@ -26,6 +24,12 @@ const api = () => {
         addPrecision: () => {
             return new Promise(async (resolve, reject) => {
                 const { data } = await obj.put(`/api/pi/addPrecision`);
+                resolve(data);
+            });
+        },
+        resetPi: () => {
+            return new Promise(async (resolve, reject) => {
+                const { data } = await obj.get(`/api/pi/reset`);
                 resolve(data);
             });
         },

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faChartPie } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faUndo } from '@fortawesome/free-solid-svg-icons';
 
 const StyledPi = styled.form`
   display: flex;
@@ -20,6 +20,10 @@ const StyledPi = styled.form`
       color: grey;
       font-size: 20px;
     }
+    .fa-undo {
+        color: grey;
+        font-size: 20px;
+      }
   }
   input {
     transition: 0.5s;
@@ -41,12 +45,16 @@ const StyledPi = styled.form`
 `;
 
 
-const Pi = ({addPrecision, piValue}) => {
+const Pi = ({addPrecision, resetPi, piValue}) => {
     return (
         <StyledPi
             onSubmit={(event) => {
                 event.preventDefault();
                 addPrecision();
+            }}
+            onReset={(event) => {
+                event.preventDefault();
+                resetPi();
             }}
             >
             <input
@@ -58,6 +66,9 @@ const Pi = ({addPrecision, piValue}) => {
             />
             <button type="submit">
                 <FontAwesomeIcon className="fa-plus" icon={faPlus} />
+            </button>
+            <button type="reset">
+                <FontAwesomeIcon className="fa-undo" icon={faUndo} />
             </button>
         </StyledPi>
 
