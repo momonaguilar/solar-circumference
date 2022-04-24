@@ -1,3 +1,39 @@
+# solar-circumference client
+This project aims to calculate solar circumference as precise as possible by allowing value of PI to be used in calculating as expandable as possible.
+
+## setup
+1. Clone repository
+2. Run the server application
+
+[CLIENT]
+
+```sh
+cd client
+npm install
+npm start
+```
+
+Client IP : localhost:3000
+Client app is also planned to be soon hosted in [Github Pages](https://momonaguilar.github.io/solar-circumference/) [TBD]
+
+## actions
+1. ```Add PI precision ``` - clicking + button will call server to get next PI digit
+2. ```Calculate sun circumference ``` - updates sun circumference (upto certain digits only)
+3. ```Reset PI value ``` - sets PI value back to 3
+
+![Client-side UI](https://github.com/momonaguilar/solar-circumference/blob/main/assets/client-side.png?raw=true)
+
+## client short-falls
+
+1. Basic layout jer!
+
+## opportunities moving forward
+
+1. Make layout more appealing
+2. Have ability to decrease PI digit
+3. Introduce loading while server is busy on calculating large process, to make front-end experience seamless
+4. Ability to perform testing end to end
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
