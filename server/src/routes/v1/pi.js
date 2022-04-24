@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { addPiPrecision, getPiValue, format } = require('../../utils/util')
+const { addPiPrecision, getPiValue, resetPiValue, format } = require('../../utils/util')
 
 router.put("/addPrecision", async (req, res) => {
     let latestPiValue = await addPiPrecision();
@@ -11,6 +11,13 @@ router.put("/addPrecision", async (req, res) => {
 
 router.get("/getValue", async(req, res) => {
     const latestPiValue = await getPiValue('string');
+    return res.json({
+        pi: latestPiValue,
+    });
+})
+
+router.get("/reset", async(req, res) => {
+    const latestPiValue = await resetPiValue();
     return res.json({
         pi: latestPiValue,
     });

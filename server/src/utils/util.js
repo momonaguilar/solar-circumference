@@ -36,6 +36,15 @@ async function getDecimalValue() {
     return (Number(DECIMAL)); 
 }
 
+async function resetPiValue() {
+    // reset config values
+    await setConfigValue("PI", 3);
+    await setConfigValue("DECIMAL", 1);
+
+    console.log("DEBUG: Latest PI value set to " + format(latestPiValue));
+    return latestPiValue;
+}
+
 function getConfigValue(configKey = "PI") {
     return new Promise((resolve, reject) => {
         fs.readFile(pathToenvFile, 'utf8', function (err, data) {
@@ -94,5 +103,6 @@ module.exports = {
     addPiPrecision,
     getPiValue,
     computeSunCircumference,
+    resetPiValue,
     format
 }
