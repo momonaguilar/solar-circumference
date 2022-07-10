@@ -8,3 +8,5 @@ Overview of the system design showing front-end, back-end and storage:
 
 See the latest system design here: https://miro.com/app/board/uXjVO85QoLc=/?share_link_id=555336266201
 
+##Status
+Not accepted as software engineer in the company this exam is for.
